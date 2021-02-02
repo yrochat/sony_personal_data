@@ -1,7 +1,7 @@
 # My Personal Data Owned/Hosted by Sony
 This is a tiny script to analyse some of your personal data : time played pro game, time played pro week, etc.
 
-You will need to use R, along with Rstudio, which is a great app.
+You will need to use [R](https://cran.r-project.org/mirrors.html), along with [Rstudio](https://rstudio.com/products/rstudio/download/), which is an awesome app.
 
 1. Ask Sony for your data : [write to the email address here](https://www.playstation.com/en-gb/legal/careers-privacy-notice/). You will need to prove your identity. Here is what they asked from me:
 
