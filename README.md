@@ -25,5 +25,5 @@ If that's a problem for you to send these data by email, you can identify yourse
 
 
 
-<a name="myfootnote1">1</a>: Mine was called `SAR Consolidated WorkBook.xlsx`. If yours too, you don't have anything to change. If the default name has changed, find it in the script and change it.
+[<a name="myfootnote1">1</a>]: Mine was called `SAR Consolidated WorkBook.xlsx`. If yours too, you don't have anything to change. If the default name has changed, find it in the script and change it.
 
