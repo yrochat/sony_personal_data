@@ -1,4 +1,4 @@
-# My Personal Data Owned/Hosted by Sony
+# How to analyse some of my personal data owned/hosted by Sony
 This is a tiny script to analyse some of your personal data : time played pro game, time played pro week, etc.
 
 You will need to use [R](https://cran.r-project.org/mirrors.html), along with [Rstudio](https://rstudio.com/products/rstudio/download/), which is an awesome app.
