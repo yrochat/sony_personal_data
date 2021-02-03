@@ -21,7 +21,7 @@ You will need to use [R](https://cran.r-project.org/mirrors.html), along with [R
 3. Move the file you received<sup>[2](#myfootnote2)</sup> in the previous folder.
 4. Launch `sony_analysis.Rmd`, [make sure the required package is installed](http://web.cs.ucla.edu/~gulzar/rstudio/index.html), then Run the whole script and get blown by the time you spent playing video games.
 
-
+.
 
 [<a name="myfootnote1">1</a>]: If that's a problem for you to send these data by email, you can identify yourself by phone. They have a hotline.
 
