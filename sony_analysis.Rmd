@@ -1,0 +1,200 @@
+---
+title: "Sony PSN Personal Data"
+output: html_notebook
+---
+
+
+Hello!
+
+This is intended for someone who has no knowledge of code. Perhaps the only thing you need to know is that there are places in your computer (like this one) where you can write abstract stuff and stuff happens.
+
+
+## How to use this notebook?
+
+First read all the instructions, and in particular don't forget to check and adjust the file and sheet names.
+
+Then execute the chunks one after the other (the green little triangles looking like this: ▸).
+
+Or simply choose "Run all" in the "Run" menu of this panel.
+
+You'll be able to export the images or create a report (HTML, PDF, TEX, DOC) as you wish.
+
+
+## Make sure… 
+
+… [you have installed the packages used in the following chunk](http://web.cs.ucla.edu/~gulzar/rstudio/index.html).
+
+```{r}
+
+library(openxlsx)
+library(tidyverse)
+
+```
+
+
+## Import data
+
+This function imports the excel file you received.
+
+The Excel files from Sony use merged cells (don't do that at home, please), so we had to use `read.xlsx` from package *openxlsx*.
+
+**Important**. You will need to find the right sheet, something like "Gameplay Detail (123456789)", and put its name in the function below after `sheet = `.
+
+
+```{r}
+
+sessions <- read.xlsx("SAR Consolidated WorkBook.xlsx", 
+                      sheet = "Gameplay Detai (64788670563331)", 
+                      startRow = 3, 
+                      fillMergedCells = TRUE)
+
+sessions
+
+```
+
+You can view your data by clicking on `sessions` in the upper right panel. It will appear in a new tab in this panel. Right now it's ugly.
+
+
+## Clean a bit
+
+Here, we:
+
+1. Delete unnecessary columns.
+2. We change the name of columns.  
+3. Convert the table into a good behaving table (called tibble).
+4. Convert the `Day` variable from a number to a date.
+5. Convert the `Length` variable from a character to a duration.
+6. Export the result in a file.
+
+
+```{r}
+
+sessions <- sessions[,-c(1,2,5,6,7,8)]
+
+colnames(sessions) <- c("Game", "Day", "Length")
+
+sessions <- as.tibble(sessions)
+
+sessions$Day <- as.Date(as.integer(sessions$Day), origin = "1899-12-30")
+
+sessions$Length <- sessions$Length %>%
+  as.integer() %>%
+  as.duration()
+
+write_excel_csv(sessions, "sessions.csv")
+
+sessions
+
+```
+
+Now it's clean <3
+
+
+## Show time played per game
+
+This is using *pipes* and the *dplyr* package.
+
+I'm clearly not the best at it, but the code below should be readable for people who know these at least a bit. 
+
+If not and you want to understand it, here are some ressources! [Have a look at this](https://dplyr.tidyverse.org/) (and don't forget to download the cheat sheet!). Or read some documentation on the *dplyr* and *tidyverse* packages, for example [this chapter](https://r4ds.had.co.nz/transform.html).
+
+In summary, I create a new tibble and 
+
+1. isolate two columns (app names and time played), then 
+2. group the session lengths by game, 
+3. sum them to obtain the total time played on each game, and
+4. sort everything decreasingly. 
+
+
+```{r}
+
+time_played_per_game <- sessions %>% 
+  select(Game, Length) %>%
+  group_by(Game) %>%
+  summarise(Total_Length = as.duration(sum(Length))) %>%
+  arrange(desc(Total_Length))
+
+write_excel_csv(time_played_per_game, "time_played_per_game.csv")
+
+time_played_per_game
+
+```
+
+
+## Show time played per week
+
+This time we group and plot the time played per week.
+
+1. We a new tibble in which we convert all the dates to the first day of the week.
+2. We sum the time played per week.
+
+
+```{r}
+
+sessions_length_week <- sessions %>% 
+  mutate(Weekdate = floor_date(Day, unit = "weeks", week_start = 1)) 
+
+sessions_length_week <- sessions_length_week %>% 
+  group_by(Weekdate) %>%
+  summarise(Length = as.duration(sum(Length)))
+
+write_excel_csv(sessions_length_week, "sessions_length_week.csv")
+
+sessions_length_week
+
+```
+
+
+## Plot!
+
+We convert the seconds into hours and plot the time played per week.
+
+
+```{r}
+
+g <- ggplot(sessions_length_week, aes(x = Weekdate, y = Length / 3600)) +
+  geom_col(color = "black") +
+  scale_x_date(name = "Week", date_breaks = "1 month", date_labels = "%b-%y") +
+  scale_y_continuous(name = "Time played (hours)") +
+  theme(axis.text.x = element_text(angle = 90))
+
+ggsave("time_played_per_week.pdf", width = 20, height = 5)
+
+g
+
+```
+
+
+This time we plot the time played per month.
+
+
+```{r}
+
+sessions_length_month <- sessions %>% 
+  mutate(Monthdate = floor_date(Day, unit = "months")) 
+
+sessions_length_month <- sessions_length_month %>% 
+  group_by(Monthdate) %>%
+  summarise(Length = as.duration(sum(Length)))
+
+write_excel_csv(sessions_length_month, "sessions_length_month.csv")
+
+# There is a problem with the width of the columns
+# See https://stackoverflow.com/questions/48159745/how-to-space-geom-bar-evenly-when-time-series-data-is-monthly
+
+# sessions_length_month <- sessions_length_month %>% 
+#  mutate(Month = paste(month(Monthdate, label=TRUE), year(Monthdate)),
+#         month = factor(Month, levels=unique(Month)))
+# 
+# g <- ggplot(sessions_length_month, aes(x = Month, y = Length / 3600)) +
+#   geom_col(color = "black") +
+#   scale_x_discrete() +
+#   scale_y_continuous(name = "Time played (hours)") +
+#   theme(axis.text.x = element_text(angle = 90))
+# 
+# ggsave("time_played_per_month.pdf", width = 15, height = 5)
+# 
+# g
+
+```
+
