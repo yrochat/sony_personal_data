@@ -19,7 +19,7 @@ You will need to use [R](https://cran.r-project.org/mirrors.html), along with [R
     2. Choose "Download ZIP".
     3. Unzip.
     
-5. Move the file you received<sup>[2](#myfootnote2)</sup> in the previous folder.
+5. Move the file you received from Sony<sup>[2](#myfootnote2)</sup> in the previous folder.
 6. Launch `sony_analysis.Rmd`, [make sure the required packages are installed](http://web.cs.ucla.edu/~gulzar/rstudio/index.html), then Run the whole script and get blown by the time you spent playing video games.
 
 .
