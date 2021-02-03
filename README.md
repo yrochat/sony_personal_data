@@ -12,7 +12,7 @@ You will need to use [R](https://cran.r-project.org/mirrors.html), along with [R
     4. The serial number of the original console associated with the account
     5. The details of a recent transaction made using the account
 
-3. After one month, you receive a file with your personal data. It comes with a password. I had to try a few app before one worked, so try a few options before complaining to them.
+3. After one month, you receive a file with your personal data. It comes with a password. I had to try a few apps before one worked, so try a few options before complaining to them.
 4. Download this folder on your computer.
 
     1. The green button named "Code".
