@@ -3,7 +3,7 @@ This is a tiny script (notebook) to analyse some of your personal data : time pl
 
 You will need to use [R](https://cran.r-project.org/mirrors.html), along with [Rstudio](https://rstudio.com/products/rstudio/download/), which is an awesome app.
 
-1. Ask Sony for your data. First, [write to the email address here](https://www.playstation.com/en-gb/legal/careers-privacy-notice/). You can use [this template](https://github.com/yrochat/sony_personal_data/blob/main/letter_to_sony_template). (Big thank you to [PersonalData.IO](personaldata.io)!) You just need to add your name at the the bottom. 
+1. Ask Sony for your data. First, [write to the email address here](https://www.playstation.com/en-gb/legal/careers-privacy-notice/). You can use [this template](https://github.com/yrochat/sony_personal_data/blob/main/letter_to_sony_template) adapted from the [PersonalData.IO](personaldata.io) website. Big thank you to them! Now you just need to add your name at the bottom. 
 2. You will need to prove your identity. Here is what they asked from me<sup>[1](#myfootnote1)</sup>:
 
     1. The Online ID of the account
