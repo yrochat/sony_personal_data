@@ -163,38 +163,3 @@ ggsave("time_played_per_week.pdf", width = 20, height = 5)
 g
 
 ```
-
-
-This time we plot the time played per month.
-
-
-```{r}
-
-sessions_length_month <- sessions %>% 
-  mutate(Monthdate = floor_date(Day, unit = "months")) 
-
-sessions_length_month <- sessions_length_month %>% 
-  group_by(Monthdate) %>%
-  summarise(Length = as.duration(sum(Length)))
-
-write_excel_csv(sessions_length_month, "sessions_length_month.csv")
-
-# There is a problem with the width of the columns
-# See https://stackoverflow.com/questions/48159745/how-to-space-geom-bar-evenly-when-time-series-data-is-monthly
-
-# sessions_length_month <- sessions_length_month %>% 
-#  mutate(Month = paste(month(Monthdate, label=TRUE), year(Monthdate)),
-#         month = factor(Month, levels=unique(Month)))
-# 
-# g <- ggplot(sessions_length_month, aes(x = Month, y = Length / 3600)) +
-#   geom_col(color = "black") +
-#   scale_x_discrete() +
-#   scale_y_continuous(name = "Time played (hours)") +
-#   theme(axis.text.x = element_text(angle = 90))
-# 
-# ggsave("time_played_per_month.pdf", width = 15, height = 5)
-# 
-# g
-
-```
-
