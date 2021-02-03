@@ -3,7 +3,8 @@ This is a tiny script (notebook) to analyse some of your personal data : time pl
 
 You will need to use [R](https://cran.r-project.org/mirrors.html), along with [Rstudio](https://rstudio.com/products/rstudio/download/), which is an awesome app.
 
-1. Ask Sony for your data: [write to the email address here](https://www.playstation.com/en-gb/legal/careers-privacy-notice/). You will need to prove your identity. Here is what they asked from me<sup>[1](#myfootnote1)</sup>:
+1. Ask Sony for your data. First, [write to the email address here](https://www.playstation.com/en-gb/legal/careers-privacy-notice/). You can use [this template](https://github.com/yrochat/sony_personal_data/blob/main/letter_to_sony_template). (Big thank you to [PersonalData.IO](personaldata.io)!) You just need to add your name at the the bottom. 
+2. You will need to prove your identity. Here is what they asked from me<sup>[1](#myfootnote1)</sup>:
 
     1. The Online ID of the account
     2. The email address associated with the account
@@ -11,15 +12,15 @@ You will need to use [R](https://cran.r-project.org/mirrors.html), along with [R
     4. The serial number of the original console associated with the account
     5. The details of a recent transaction made using the account
 
-2. After one month, you receive a file with your personal data. It comes with a password. I had to try a few app before one worked, so try a few options before complaining to them.
-3. Download this folder on your computer.
+3. After one month, you receive a file with your personal data. It comes with a password. I had to try a few app before one worked, so try a few options before complaining to them.
+4. Download this folder on your computer.
 
     1. The green button named "Code".
     2. Choose "Download ZIP".
     3. Unzip it.
     
-3. Move the file you received<sup>[2](#myfootnote2)</sup> in the previous folder.
-4. Launch `sony_analysis.Rmd`, [make sure the required package is installed](http://web.cs.ucla.edu/~gulzar/rstudio/index.html), then Run the whole script and get blown by the time you spent playing video games.
+5. Move the file you received<sup>[2](#myfootnote2)</sup> in the previous folder.
+6. Launch `sony_analysis.Rmd`, [make sure the required package is installed](http://web.cs.ucla.edu/~gulzar/rstudio/index.html), then Run the whole script and get blown by the time you spent playing video games.
 
 .
 
