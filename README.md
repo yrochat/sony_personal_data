@@ -15,9 +15,9 @@ You will need to use [R](https://cran.r-project.org/mirrors.html), along with [R
 3. After one month, you receive a file with your personal data. It comes with a password. I had to try a few apps before one worked, so try a few options before complaining to them.
 4. Download this folder on your computer.
 
-    1. The green button named "Code".
+    1. Find the green button named "Code" and open the menu.
     2. Choose "Download ZIP".
-    3. Unzip it.
+    3. Unzip.
     
 5. Move the file you received<sup>[2](#myfootnote2)</sup> in the previous folder.
 6. Launch `sony_analysis.Rmd`, [make sure the required packages are installed](http://web.cs.ucla.edu/~gulzar/rstudio/index.html), then Run the whole script and get blown by the time you spent playing video games.
