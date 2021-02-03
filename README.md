@@ -20,7 +20,7 @@ You will need to use [R](https://cran.r-project.org/mirrors.html), along with [R
     3. Unzip.
     
 5. Move the file you received from Sony<sup>[2](#myfootnote2)</sup> in the previous folder.
-6. Launch `sony_analysis.Rmd`, [make sure the required packages are installed](http://web.cs.ucla.edu/~gulzar/rstudio/index.html), then Run the whole script and get blown by the time you spent playing video games.
+6. Launch `sony_analysis.Rmd`, [make sure the required packages are installed](http://web.cs.ucla.edu/~gulzar/rstudio/index.html), then Run the whole script and get either amazed or disturbed by the time you spent playing video games on these platforms (if anybody has done the same for Microsoft or Nintendo, please let me know).
 
 .
 
